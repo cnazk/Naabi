@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace IdentityService.Controllers;
 
 [ApiController]
-[Route("/api/[controller]")]
+[Route("/[controller]")]
 public class AccountsController : ControllerBase
 {
     private readonly UserManager<ApplicationUser> _userManager;
@@ -27,7 +27,7 @@ public class AccountsController : ControllerBase
         _jwtTokenFactory = jwtTokenFactory;
     }
 
-    [HttpPost("/Register")]
+    [HttpPost("Register")]
     public async Task<IActionResult> RegisterAsync(RegisterDto register)
     {
         var result = await _userManager.CreateAsync(new ApplicationUser
@@ -77,9 +77,10 @@ public class AccountsController : ControllerBase
     [Authorize]
     [ProducesResponseType(typeof(UserInfoDto), 200)]
     [ProducesResponseType(401)]
-    [HttpGet("/Profile")]
+    [HttpGet("Profile")]
     public async Task<IActionResult> GetUserInfoAsync()
     {
+        Console.WriteLine(string.Join(" |||| ", Request.Headers.Select(h => $"{h.Key}: {h.Value}")));
         var user = await _userManager.FindByNameAsync(User.Identity.Name);
         if (user == null) return Unauthorized();
         return Ok(_mapper.Map<UserInfoDto>(user));

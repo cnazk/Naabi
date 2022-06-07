@@ -1,0 +1,20 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2020
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Identity/{path}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post"
+      ]
+    }
+  ],
+  "GlobalConfiguration": {}
+}

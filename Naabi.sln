@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityService", "IdentityService\IdentityService.csproj", "{D249F10E-BB1C-41B6-ADC3-F49297492C9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGatewayService", "ApiGatewayService\ApiGatewayService.csproj", "{EEE63DCD-C9E8-455D-AB5A-333E7995EBE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivitiesService", "ActivitiesService\ActivitiesService.csproj", "{B4009563-3616-4819-8CCF-A600105ECBF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{D249F10E-BB1C-41B6-ADC3-F49297492C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D249F10E-BB1C-41B6-ADC3-F49297492C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D249F10E-BB1C-41B6-ADC3-F49297492C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE63DCD-C9E8-455D-AB5A-333E7995EBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE63DCD-C9E8-455D-AB5A-333E7995EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE63DCD-C9E8-455D-AB5A-333E7995EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE63DCD-C9E8-455D-AB5A-333E7995EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4009563-3616-4819-8CCF-A600105ECBF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4009563-3616-4819-8CCF-A600105ECBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4009563-3616-4819-8CCF-A600105ECBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4009563-3616-4819-8CCF-A600105ECBF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

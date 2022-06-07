@@ -1,0 +1,20 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-service-clusterip-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Identity/{path}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post"
+      ]
+    }
+  ],
+  "GlobalConfiguration": {}
+}

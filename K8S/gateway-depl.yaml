@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: naabi-api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: naabi-api-gateway
+  template:
+    metadata:
+      labels:
+        app: naabi-api-gateway
+    spec:
+      containers:
+        - name: naabi-api-gateway
+          image: cnazk/naabi-api-gateway:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-clusterip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: naabi-api-gateway
+  ports:
+    - name: naabi-api-gateway
+      protocol: TCP
+      port: 80
+      targetPort: 80
