@@ -1,11 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using Common;
 
 namespace ActivitiesService.Models.DataBase;
 
-public class UserActivity: EntityWithId
+public class UserActivity : NonDeletableEntity
 {
-    [Required]
-    public string UserId { get; set; }
+    [Required] public string UserId { get; set; }
     public int ActivityId { get; set; }
     public Activity Activity { get; set; }
 }

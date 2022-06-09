@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGatewayService", "ApiGat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivitiesService", "ActivitiesService\ActivitiesService.csproj", "{B4009563-3616-4819-8CCF-A600105ECBF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EB596F7B-9726-421B-9B78-A70B3D25377E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{B4009563-3616-4819-8CCF-A600105ECBF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4009563-3616-4819-8CCF-A600105ECBF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4009563-3616-4819-8CCF-A600105ECBF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

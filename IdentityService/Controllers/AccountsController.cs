@@ -3,7 +3,7 @@ using System.Security.Claims;
 using AutoMapper;
 using IdentityService.Helpers;
 using IdentityService.Models.DataBase;
-using IdentityService.Models.Dtos;
+using IdentityService.Models.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

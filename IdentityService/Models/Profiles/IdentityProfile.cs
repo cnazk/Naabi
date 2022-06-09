@@ -1,6 +1,6 @@
 using AutoMapper;
 using IdentityService.Models.DataBase;
-using IdentityService.Models.Dtos;
+using IdentityService.Models.Dto;
 
 namespace IdentityService.Models.Profiles;
 

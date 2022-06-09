@@ -1,4 +1,4 @@
-namespace IdentityService.Models.Dtos;
+namespace IdentityService.Models.Dto;
 
 public class LoginDto
 {
