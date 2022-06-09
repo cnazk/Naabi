@@ -12,5 +12,6 @@ public class ActivitiesProfile : Profile
         CreateMap<ActivityWriteDto, ActivityCategory>();
         CreateMap<Activity, ActivityReadDto>();
         CreateMap<ActivityWriteDto, Activity>();
+        CreateMap<UserActivityWriteDto, UserActivity>();
     }
 }
