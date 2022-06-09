@@ -93,7 +93,14 @@ if (app.Environment.IsProduction())
 {
     using var scope = app.Services.CreateScope();
     var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dataContext.Database.Migrate();
+    try
+    {
+        dataContext.Database.Migrate();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e);
+    }
 }
 
 app.Run();

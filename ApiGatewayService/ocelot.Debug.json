@@ -28,7 +28,13 @@
       "UpstreamHttpMethod": [
         "Get",
         "Post"
-      ]
+      ],
+      "AddHeadersToRequest": {
+        "userId": "Claims[jti]"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "bearer"
+      }
     }
   ],
   "GlobalConfiguration": {}

@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: identity-postgres
-        image: arm64v8/postgres:latest
+        image: postgres:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5432
         env:
