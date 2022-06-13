@@ -1,12 +1,12 @@
-using ActivitiesService.Models;
 using Common;
+using FriendsService.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 if (builder.Environment.IsDevelopment())
-    builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("ActivitiesService"));
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("FriendsService"));
 else
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(builder.Configuration["ConnectionString"]));

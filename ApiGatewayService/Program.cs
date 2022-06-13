@@ -1,5 +1,5 @@
 using System.Text;
-using ApiGatewayService;
+using Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;

@@ -1,4 +1,4 @@
-namespace ApiGatewayService;
+namespace Common;
 
 public static class Helper
 {

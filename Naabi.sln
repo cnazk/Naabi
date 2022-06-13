@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivitiesService", "Activi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EB596F7B-9726-421B-9B78-A70B3D25377E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendsService", "FriendsService\FriendsService.csproj", "{83A0979F-2243-438C-BB0B-4CC876A221DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB596F7B-9726-421B-9B78-A70B3D25377E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A0979F-2243-438C-BB0B-4CC876A221DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A0979F-2243-438C-BB0B-4CC876A221DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A0979F-2243-438C-BB0B-4CC876A221DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A0979F-2243-438C-BB0B-4CC876A221DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

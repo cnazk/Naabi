@@ -7,4 +7,5 @@ public class UserInfoDto
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
     public DateTime RegisterDate { get; set; }
+    public bool IsPublic { get; set; }
 }

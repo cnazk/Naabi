@@ -35,6 +35,27 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "bearer"
       }
+    },
+    {
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "friends-service-clusterip-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Friends/{path}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post"
+      ],
+      "AddHeadersToRequest": {
+        "userId": "Claims[jti]"
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "bearer"
+      }
     }
   ],
   "GlobalConfiguration": {}

@@ -1,4 +1,5 @@
 using System.Text;
+using Common;
 using IdentityService.Helpers;
 using IdentityService.Models;
 using IdentityService.Models.DataBase;
@@ -11,7 +12,11 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration["ConnectionString"]));
+if (builder.Environment.IsDevelopment())
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("IdentityService"));
+else
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(builder.Configuration["ConnectionString"]));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
@@ -91,15 +96,23 @@ app.MapControllers();
 
 if (app.Environment.IsProduction())
 {
+    var @try = 0;
     using var scope = app.Services.CreateScope();
     var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    try
+    while (@try < 5)
     {
-        dataContext.Database.Migrate();
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e);
+        try
+        {
+            Helper.Log($"Trying to migrate database for {@try} time...");
+            dataContext.Database.Migrate();
+            break;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            @try++;
+            Thread.Sleep(5000);
+        }
     }
 }
 
