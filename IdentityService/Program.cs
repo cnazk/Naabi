@@ -11,6 +11,18 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowAll",
+//         builder =>
+//         {
+//             builder.AllowAnyOrigin()
+//                 .AllowAnyHeader()
+//                 .AllowAnyMethod();
+//         });
+// });
+builder.Services.AddCors();
+
 // Add services to the container.
 if (builder.Environment.IsDevelopment())
     builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("IdentityService"));
@@ -18,6 +30,7 @@ else
     builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(builder.Configuration["ConnectionString"]));
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddErrorDescriber<PersianErrorDescriber>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
@@ -78,6 +91,8 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.Configure<IdentityOptions>(options => { options.Password.RequireNonAlphanumeric = false; });
+
 var app = builder.Build();
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 // Configure the HTTP request pipeline.
@@ -88,6 +103,8 @@ if (app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
+
+app.UseCors(b => b.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -114,6 +131,22 @@ if (app.Environment.IsProduction())
             Thread.Sleep(5000);
         }
     }
+}
+else
+{
+    using var scope = app.Services.CreateScope();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    userManager.CreateAsync(new ApplicationUser
+    {
+        Id = "caa445b9-56d9-432c-aae5-166f99ece010",
+        Email = "cnazk98@gmail.com",
+        BirthDate = new DateTime(1999, 1, 14),
+        FirstName = "سینا",
+        IsPublic = true,
+        LastName = "ذاکر",
+        PhoneNumber = "09107654560",
+        UserName = "cnazk",
+    }, "Sina9090");
 }
 
 app.Run();

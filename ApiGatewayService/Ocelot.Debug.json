@@ -12,7 +12,9 @@
       "UpstreamPathTemplate": "/api/Identity/{path}",
       "UpstreamHttpMethod": [
         "Get",
-        "Post"
+        "Post",
+        "Options",
+        "Put"
       ]
     },
     {
@@ -27,13 +29,15 @@
       "UpstreamPathTemplate": "/api/act/{path}",
       "UpstreamHttpMethod": [
         "Get",
-        "Post"
+        "Post",
+        "Options",
+        "Put"
       ],
       "AddHeadersToRequest": {
         "userId": "Claims[jti]"
       },
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "bearer"
+        "AuthenticationProviderKey": "Bearer"
       }
     },
     {
@@ -48,13 +52,15 @@
       "UpstreamPathTemplate": "/api/Friends/{path}",
       "UpstreamHttpMethod": [
         "Get",
-        "Post"
+        "Post",
+        "Options",
+        "Put"
       ],
       "AddHeadersToRequest": {
         "userId": "Claims[jti]"
       },
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "bearer"
+        "AuthenticationProviderKey": "Bearer"
       }
     }
   ],

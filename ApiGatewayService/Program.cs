@@ -6,6 +6,18 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("*");
+            policy.WithHeaders("*");
+            policy.WithMethods("*");
+        });
+});
+
 Helper.Log($"Using {builder.Configuration["OcelotConfigurationFile"]} as Ocelot config file");
 builder.Configuration.AddJsonFile(builder.Configuration["OcelotConfigurationFile"]);
 
@@ -33,6 +45,8 @@ builder.Services.AddOcelot();
 var app = builder.Build();
 
 app.UseOcelot().Wait();
+
+app.UseCors();
 
 app.MapControllers();
 

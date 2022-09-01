@@ -12,7 +12,9 @@
       "UpstreamPathTemplate": "/api/Identity/{path}",
       "UpstreamHttpMethod": [
         "Get",
-        "Post"
+        "Post",
+        "Options",
+        "Put"
       ]
     },
     {
@@ -27,13 +29,15 @@
       "UpstreamPathTemplate": "/api/act/{path}",
       "UpstreamHttpMethod": [
         "Get",
-        "Post"
+        "Post",
+        "Options",
+        "Put"
       ],
       "AddHeadersToRequest": {
         "userId": "Claims[jti]"
       },
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "bearer"
+        "AuthenticationProviderKey": "Bearer"
       }
     },
     {
@@ -48,14 +52,33 @@
       "UpstreamPathTemplate": "/api/Friends/{path}",
       "UpstreamHttpMethod": [
         "Get",
-        "Post"
+        "Post",
+        "Options",
+        "Put"
       ],
       "AddHeadersToRequest": {
         "userId": "Claims[jti]"
       },
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "bearer"
+        "AuthenticationProviderKey": "Bearer"
       }
+    },
+    {
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "web-service-clusterip-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/{path}",
+      "UpstreamHttpMethod": [
+        "Get",
+        "Post",
+        "Options",
+        "Put"
+      ]
     }
   ],
   "GlobalConfiguration": {}

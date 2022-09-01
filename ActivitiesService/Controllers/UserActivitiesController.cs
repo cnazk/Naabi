@@ -26,7 +26,7 @@ public class UserActivitiesController: ControllerBase
     public async Task<IActionResult> UserActivities(int take=-1, int skip=-1, int? activityId = null)
     {
         if (UserId == "")
-            return NotFound();
+            return Unauthorized();
         var query = _context.UserActivities.Where(activity => activity.UserId == UserId);
         if (skip != -1)
             query = query.Skip(skip);
@@ -37,7 +37,7 @@ public class UserActivitiesController: ControllerBase
         return Ok(await query.ToListAsync());
     }
 
-    [HttpPost("AddUserActivity")]
+    [HttpPost]
     public async Task<IActionResult> AddUserActivity(UserActivityWriteDto userActivity)
     {
         var entity = _mapper.Map<UserActivity>(userActivity);

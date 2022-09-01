@@ -8,8 +8,8 @@ public class ActivitiesProfile : Profile
 {
     public ActivitiesProfile()
     {
-        CreateMap<ActivityCategory, ActivityReadDto>();
-        CreateMap<ActivityWriteDto, ActivityCategory>();
+        CreateMap<ActivityCategory, CategoryReadDto>();
+        CreateMap<CategoryWriteDto, ActivityCategory>();
         CreateMap<Activity, ActivityReadDto>();
         CreateMap<ActivityWriteDto, Activity>();
         CreateMap<UserActivityWriteDto, UserActivity>();

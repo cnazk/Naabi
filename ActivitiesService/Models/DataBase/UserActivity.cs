@@ -9,4 +9,6 @@ public class UserActivity : NonDeletableEntity
     public int ActivityId { get; set; }
     public Activity Activity { get; set; }
     public string Input { get; set; }
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
 }
