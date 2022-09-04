@@ -34,7 +34,7 @@
         "Put"
       ],
       "AddHeadersToRequest": {
-        "userId": "Claims[jti]"
+        "userId": "Claims[jti] > value"
       },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
@@ -57,7 +57,7 @@
         "Put"
       ],
       "AddHeadersToRequest": {
-        "userId": "Claims[jti]"
+        "userId": "Claims[jti] > value"
       },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"

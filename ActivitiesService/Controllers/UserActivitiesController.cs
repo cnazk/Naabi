@@ -9,10 +9,10 @@ namespace ActivitiesService.Controllers;
 
 [ApiController]
 [Route("/[controller]")]
-public class UserActivitiesController: ControllerBase
+public class UserActivitiesController : ControllerBase
 {
     private string UserId => Request.Headers.ContainsKey("userId") ? Request.Headers["userId"].ToString().Trim() : "";
-    
+
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
 
@@ -21,20 +21,22 @@ public class UserActivitiesController: ControllerBase
         _context = context;
         _mapper = mapper;
     }
-    
+
     [HttpGet]
-    public async Task<IActionResult> UserActivities(int take=-1, int skip=-1, int? activityId = null)
+    public async Task<IActionResult> UserActivities(int take = -1, int skip = -1, int? activityId = null)
     {
         if (UserId == "")
             return Unauthorized();
-        var query = _context.UserActivities.Where(activity => activity.UserId == UserId);
+        IQueryable<UserActivity> query = _context.UserActivities.Where(activity => activity.UserId == UserId)
+            .Include(a => a.Activity.ActivityCategory)
+            .OrderByDescending(a => a.EndDate);
         if (skip != -1)
             query = query.Skip(skip);
         if (take != -1)
             query = query.Take(take);
         if (activityId != null)
             query = query.Where(a => a.ActivityId == activityId);
-        return Ok(await query.ToListAsync());
+        return Ok(_mapper.Map<List<UserActivityReadDto>>(await query.ToListAsync()));
     }
 
     [HttpPost]

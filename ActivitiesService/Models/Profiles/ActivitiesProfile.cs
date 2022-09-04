@@ -13,5 +13,6 @@ public class ActivitiesProfile : Profile
         CreateMap<Activity, ActivityReadDto>();
         CreateMap<ActivityWriteDto, Activity>();
         CreateMap<UserActivityWriteDto, UserActivity>();
+        CreateMap<UserActivity, UserActivityReadDto>();
     }
 }

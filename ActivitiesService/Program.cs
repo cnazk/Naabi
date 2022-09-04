@@ -5,16 +5,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
-});
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowAll",
+//         builder =>
+//         {
+//             builder.AllowAnyOrigin()
+//                 .AllowAnyHeader()
+//                 .AllowAnyMethod();
+//         });
+// });
+builder.Services.AddCors();
 
 // Add services to the container.
 if (builder.Environment.IsDevelopment())
@@ -42,7 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowAll");
+app.UseCors(b => b.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -93,7 +94,8 @@ else
         Id = 1,
         ActivityCategoryId = 1,
         CanSelectTime = true,
-        InputName = "چند دقیقه؟"
+        InputName = "چند دقیقه؟",
+        Unit = "دقیقه",
     });
     dataContext.Activities.Add(new Activity
     {
@@ -102,7 +104,8 @@ else
         Id = 2,
         ActivityCategoryId = 1,
         CanSelectTime = true,
-        InputName = "چند دقیقه؟"
+        InputName = "چند دقیقه؟",
+        Unit = "دقیقه",
     });
     dataContext.Activities.Add(new Activity
     {
@@ -111,7 +114,8 @@ else
         Id = 3,
         ActivityCategoryId = 2,
         CanSelectTime = false,
-        InputName = "چند لیوان؟"
+        InputName = "چند لیوان؟",
+        Unit = "لیوان",
     });
     dataContext.Activities.Add(new Activity
     {
@@ -120,7 +124,8 @@ else
         Id = 4,
         ActivityCategoryId = 2,
         CanSelectTime = false,
-        InputName = "چند صفحه؟"
+        InputName = "چند صفحه؟",
+        Unit = "صفحه",
     });
     await dataContext.SaveChangesAsync();
 }

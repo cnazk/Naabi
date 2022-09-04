@@ -28,13 +28,26 @@
       ],
       "UpstreamPathTemplate": "/api/act/{path}",
       "UpstreamHttpMethod": [
+        "Options"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2030
+        }
+      ],
+      "UpstreamPathTemplate": "/api/act/{path}",
+      "UpstreamHttpMethod": [
         "Get",
         "Post",
-        "Options",
         "Put"
       ],
       "AddHeadersToRequest": {
-        "userId": "Claims[jti]"
+        "userId": "Claims[jti] > value"
       },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"
@@ -51,13 +64,26 @@
       ],
       "UpstreamPathTemplate": "/api/Friends/{path}",
       "UpstreamHttpMethod": [
+        "Options"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2040
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Friends/{path}",
+      "UpstreamHttpMethod": [
         "Get",
         "Post",
-        "Options",
         "Put"
       ],
       "AddHeadersToRequest": {
-        "userId": "Claims[jti]"
+        "userId": "Claims[jti] > value"
       },
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer"

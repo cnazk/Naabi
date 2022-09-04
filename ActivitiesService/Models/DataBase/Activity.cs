@@ -12,6 +12,7 @@ public class Activity : NonDeletableEntity
     public ActivityCategory ActivityCategory { get; set; }
 
     public bool CanSelectTime { get; set; } = true;
+    public string Unit { get; set; }
 
     public bool Disabled { get; set; } = false;
 
